@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
+import imageProfile from './assets/Pic1.jpeg';
 
-const PortfolioHero = () => {
+const Portafolio = () => {
   // 1. Estilos del contenedor principal
   const containerStyle = {
     backgroundColor: '#0a0e14',
@@ -66,6 +67,24 @@ const PortfolioHero = () => {
 
       {/* CONTENIDO CENTRAL */}
       <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', padding: '0 20px' }}>
+
+        {/* FOTO CIRCULAR */}
+        <div style={{
+          width: '200px',
+          height: '200px',
+          margin: '0 auto 20px auto',
+          borderRadius: '50%',
+          border: '4px solid #00d2ff', 
+          overflow: 'hidden',
+          boxShadow: '0 0 25px rgba(0, 210, 255, 0.4)',
+        }}>
+          <img
+            src={imageProfile}
+            alt="Profile"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        </div>
+
         <p style={{ color: 'white', fontSize: '1.4rem', marginBottom: '-15px', fontStyle: 'italic', opacity: 0.8 }}>
           2026
         </p>
@@ -81,11 +100,11 @@ const PortfolioHero = () => {
           Portafolio
         </h1>
 
-        <div style={{ 
-          display: 'flex', 
-          gap: '12px', 
-          justifyContent: 'center', 
-          flexWrap: 'wrap', 
+        <div style={{
+          display: 'flex',
+          gap: '12px',
+          justifyContent: 'center',
+          flexWrap: 'wrap',
           maxWidth: '900px',
           marginTop: '20px'
         }}>
@@ -110,14 +129,14 @@ const PortfolioHero = () => {
         </span>
 
         <div className="animate-bounce-custom" style={{ cursor: 'pointer', opacity: 0.7 }}>
-          <svg 
-            width="32" 
-            height="32" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="1.5" 
-            strokeLinecap="round" 
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
             strokeLinejoin="round"
           >
             <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
@@ -144,4 +163,4 @@ const Tag = ({ children, color }) => (
   </span>
 );
 
-export default PortfolioHero;
+export default Portafolio;
