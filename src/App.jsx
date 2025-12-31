@@ -3,8 +3,8 @@ import './App.css';
 
 const PortfolioHero = () => {
   const containerStyle = {
-    backgroundColor: '#0a0e14', 
-    minHeight: '100vh',         
+    backgroundColor: '#0a0e14',
+    minHeight: '100vh',
     width: '100vw',
     display: 'flex',
     flexDirection: 'column',
@@ -37,17 +37,17 @@ const PortfolioHero = () => {
 
       {/* Contenido centrado (Z-index alto para que esté arriba) */}
       <div style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
-        
+
         <p style={{ color: 'white', fontSize: '1.5rem', marginBottom: '-10px', fontStyle: 'italic', opacity: 0.9 }}>
           2026
         </p>
-        
-        <h1 style={{ 
-          color: 'white', 
+
+        <h1 style={{
+          color: 'white',
           fontSize: 'clamp(3rem, 10vw, 8rem)', // Se ajusta al tamaño de pantalla
-          fontWeight: 'bold', 
+          fontWeight: 'bold',
           margin: '10px 0',
-          letterSpacing: '-2px' 
+          letterSpacing: '-2px'
         }}>
           Portafolio
         </h1>
@@ -56,7 +56,9 @@ const PortfolioHero = () => {
         <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
           <Tag color="#e94d89">Web</Tag>
           <Tag color="#d4e94d">Desktop</Tag>
-          <Tag color="#ffffff">Mobil</Tag>
+          <Tag color="#ffffff">App Mobiles</Tag>
+          <Tag color="#3ecf8e">Bases de datos</Tag>
+          <Tag color="#a29bfe">Soporte</Tag>    
         </div>
       </div>
     </div>
