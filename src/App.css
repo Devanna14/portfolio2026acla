@@ -4,3 +4,13 @@ html, body {
   box-sizing: border-box;
   overflow-x: hidden; /* Evita el desborde horizontal */
 }
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory; /* Esto activa el salto automático */
+}
+
+section {
+  scroll-snap-align: start; /* Alinea cada sección al inicio */
+  scroll-snap-stop: always;
+}
