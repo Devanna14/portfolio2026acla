@@ -1,9 +1,18 @@
 import React from 'react';
 import './App.css';
 import imageProfile from './assets/Pic1.jpeg';
+import { FaReact } from "react-icons/fa";
+import { RiNodejsLine } from "react-icons/ri";
+import { PiFileSqlFill } from "react-icons/pi";
+import { FaGitAlt } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { MdAndroid } from "react-icons/md";
+import { SiPostman } from "react-icons/si";
+import { SiMysql } from "react-icons/si";
+import { SiPhp } from "react-icons/si";
 
 // --- SUB-COMPONENTE PARA LAS TARJETAS DE EXPERIENCIA ---
-const ExperienceCard = ({ company, role, date, description, color }) => (
+const ExperienceCard = ({ company, role, date, description, color, tools = [] }) => (
   <div style={{
     backgroundColor: 'rgba(255, 255, 255, 0.03)',
     border: `1px solid rgba(255, 255, 255, 0.1)`,
@@ -12,31 +21,52 @@ const ExperienceCard = ({ company, role, date, description, color }) => (
     marginBottom: '20px',
     textAlign: 'left',
     transition: 'all 0.3s ease',
-    cursor: 'default',
     width: '100%',
     maxWidth: '800px',
     backdropFilter: 'blur(5px)'
   }}
   onMouseEnter={(e) => {
     e.currentTarget.style.border = `1px solid ${color}`;
-    e.currentTarget.style.transform = 'translateX(10px)';
     e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
   }}
   onMouseLeave={(e) => {
     e.currentTarget.style.border = `1px solid rgba(255, 255, 255, 0.1)`;
-    e.currentTarget.style.transform = 'translateX(0px)';
     e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.03)';
   }}
   >
-    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px', flexWrap: 'wrap', gap: '10px' }}>
-      <h3 style={{ color: color, margin: 0, fontSize: '1.4rem', fontWeight: '700' }}>
-        {role} <span style={{color: '#fff', opacity: 0.5, fontWeight: '400'}}>at {company}</span>
+    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+      <h3 style={{ color: color, margin: 0, fontSize: '1.4rem' }}>
+        {role} <span style={{color: '#fff', opacity: 0.5}}>at {company}</span>
       </h3>
-      <span style={{ color: '#fff', opacity: 0.6, fontSize: '0.9rem', backgroundColor: 'rgba(255,255,255,0.1)', padding: '4px 12px', borderRadius: '20px' }}>
-        {date}
-      </span>
+      <span style={{ color: '#fff', opacity: 0.6, fontSize: '0.9rem' }}>{date}</span>
     </div>
-    <p style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', margin: 0 }}>{description}</p>
+    
+    <p style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', margin: '0 0 15px 0' }}>
+      {description}
+    </p>
+
+    {/* SECCIÓN DE ICONOS/HERRAMIENTAS */}
+    {tools.length > 0 && (
+      <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '10px' }}>
+        {tools.map((tool, index) => (
+          <span key={index} style={{
+            fontSize: '1.4rem',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'transform 0.2s ease',
+            color: color, // Usamos el color de la tarjeta para los iconos/nombres
+            border: `1px solid ${color}44`, // Borde sutil del mismo color
+            padding: '4px 10px',
+            borderRadius: '6px',
+            backgroundColor: 'rgba(0,0,0,0.2)',
+            fontWeight: 'bold'
+          }}>
+            {tool}
+          </span>
+        ))}
+      </div>
+    )}
   </div>
 );
 
@@ -183,6 +213,7 @@ const Portafolio = () => {
               date="Abril 2024 - Present"
               color="#d4e94d"
               description="Desarrollo de software, mejora y optimización de sistemas existentes."
+              tools={[<FaReact />, <RiNodejsLine />, <PiFileSqlFill />, <FaGitAlt />, <FaGithub />, <SiPostman />, <SiMysql />, <MdAndroid />, <SiPhp />, "Vb.net"]}
             />
             <ExperienceCard 
               company="LigaElite"
