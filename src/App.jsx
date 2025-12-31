@@ -1,3 +1,7 @@
+import React from 'react';
+import { LiaDev } from "react-icons/lia";
+import './App.css'
+
 function App() {
   return (
     <div className="relative min-h-screen w-full flex items-center justify-center bg-[#0a1118] overflow-hidden">
@@ -16,6 +20,7 @@ function App() {
       {/* CONTENIDO PRINCIPAL */}
       <div className="relative z-10 text-center">
         <h1 className="text-white text-8xl font-bold tracking-tighter">
+          <LiaDev />
           portfolio
         </h1>
         {/* Aquí irían tus etiquetas y stickers */}
