@@ -111,7 +111,7 @@ const ProjectCard = ({ title, category, image, color, link }) => (
     backgroundColor: 'rgba(255, 255, 255, 0.03)',
     borderRadius: '24px',
     overflow: 'hidden',
-    border: '1px solid rgba(255, 255, 255, 0.1)',
+    border: '1px dashed rgba(255, 255, 255, 0.2)',
     transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
     width: '100%',
     maxWidth: '350px',

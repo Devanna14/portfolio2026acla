@@ -15,9 +15,13 @@ section {
   scroll-snap-stop: always;
 }
 
+.project-card {
+  border-style: dashed !important; 
+}
+
 .project-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 210, 255, 0.2);
+  box-shadow: 0 15px 30px rgba(255, 255, 255, 0.05);
 }
 
 .img-container img {
