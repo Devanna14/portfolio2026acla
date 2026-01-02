@@ -31,22 +31,22 @@ const ExperienceCard = ({ company, role, date, description, color, tools = [] })
     maxWidth: '800px',
     backdropFilter: 'blur(5px)'
   }}
-  onMouseEnter={(e) => {
-    e.currentTarget.style.border = `1px solid ${color}`;
-    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.border = `1px solid rgba(255, 255, 255, 0.1)`;
-    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.03)';
-  }}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.border = `1px solid ${color}`;
+      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.border = `1px solid rgba(255, 255, 255, 0.1)`;
+      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.03)';
+    }}
   >
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
       <h3 style={{ color: color, margin: 0, fontSize: '1.4rem' }}>
-        {role} <span style={{color: '#fff', opacity: 0.5}}>at {company}</span>
+        {role} <span style={{ color: '#fff', opacity: 0.5 }}>at {company}</span>
       </h3>
       <span style={{ color: '#fff', opacity: 0.6, fontSize: '0.9rem' }}>{date}</span>
     </div>
-    
+
     <p style={{ color: '#ccc', lineHeight: '1.6', fontSize: '1rem', margin: '0 0 15px 0' }}>
       {description}
     </p>
@@ -92,6 +92,54 @@ const Tag = ({ children, color }) => (
   </span>
 );
 
+
+// Sub-componente principal cards de galeria
+const ProjectCard = ({ title, category, image, color, link }) => (
+  <div className="project-card" style={{
+    backgroundColor: 'rgba(255, 255, 255, 0.03)',
+    borderRadius: '24px',
+    overflow: 'hidden',
+    border: '1px solid rgba(255, 255, 255, 0.1)',
+    transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+    width: '100%',
+    maxWidth: '350px',
+    textAlign: 'left',
+    zIndex: 10
+  }}>
+    <div className="img-container" style={{ width: '100%', height: '200px', overflow: 'hidden', position: 'relative' }}>
+      <img src={image} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+      <div style={{
+        position: 'absolute',
+        top: '15px',
+        right: '15px',
+        backgroundColor: color,
+        color: 'black',
+        padding: '4px 12px',
+        borderRadius: '20px',
+        fontSize: '0.7rem',
+        fontWeight: 'bold',
+        textTransform: 'uppercase'
+      }}>
+        {category}
+      </div>
+    </div>
+    <div style={{ padding: '20px' }}>
+      <h3 style={{ color: 'white', margin: '0 0 10px 0', fontSize: '1.2rem' }}>{title}</h3>
+      <a href={link} style={{
+        color: color,
+        textDecoration: 'none',
+        fontSize: '0.9rem',
+        fontWeight: '600',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '5px'
+      }}>
+        Ver proyecto <span>→</span>
+      </a>
+    </div>
+  </div>
+);
+
 const Portafolio = () => {
   // Estilos base para las secciones
   const sectionStyle = {
@@ -119,10 +167,10 @@ const Portafolio = () => {
   };
 
   return (
-    <div style={{ 
-      backgroundColor: '#0a0e14', 
-      height: '100vh', 
-      overflowY: 'scroll', 
+    <div style={{
+      backgroundColor: '#0a0e14',
+      height: '100vh',
+      overflowY: 'scroll',
       scrollSnapType: 'y mandatory', // Activa el movimiento de un solo golpe
       scrollBehavior: 'smooth'
     }}>
@@ -153,7 +201,7 @@ const Portafolio = () => {
             height: '200px',
             margin: '0 auto 20px auto',
             borderRadius: '50%',
-            border: '4px solid #00d2ff', 
+            border: '4px solid #00d2ff',
             overflow: 'hidden',
             boxShadow: '0 0 25px rgba(0, 210, 255, 0.4)',
           }}>
@@ -200,12 +248,12 @@ const Portafolio = () => {
       {/* --- SECCIÓN 2: EXPERIENCIA --- */}
       <section style={{ ...sectionStyle, justifyContent: 'flex-start', paddingTop: '100px' }}>
         <div style={gridOverlayStyle}></div>
-        
+
         <div style={{ position: 'relative', zIndex: 10, width: '90%', maxWidth: '900px', textAlign: 'center', marginBottom: '100px' }}>
-          <h2 style={{ 
-            color: 'white', 
-            fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', 
-            fontWeight: '800', 
+          <h2 style={{
+            color: 'white',
+            fontSize: 'clamp(2.5rem, 8vw, 4.5rem)',
+            fontWeight: '800',
             marginBottom: '50px',
             letterSpacing: '-1px'
           }}>
@@ -213,7 +261,7 @@ const Portafolio = () => {
           </h2>
 
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <ExperienceCard 
+            <ExperienceCard
               company="Hydraulic Pneumatic Original Parts"
               role="Programador"
               date="Abril 2024 - Present"
@@ -221,7 +269,7 @@ const Portafolio = () => {
               description="Desarrollo de software, mejora y optimización de sistemas existentes."
               tools={[<FaReact />, <RiNodejsLine />, <PiFileSqlFill />, <FaGitAlt />, <FaGithub />, <SiPostman />, <SiMysql />, <MdAndroid />, <SiPhp />, "Vb.Net"]}
             />
-            <ExperienceCard 
+            <ExperienceCard
               company="LigaElite"
               role="Desarrollador Web"
               date="Julio 2024 - Present"
@@ -229,29 +277,29 @@ const Portafolio = () => {
               description="Desarrollo y diseño de sistema web para control de jugadores y manejo administrativo."
               tools={[<FaHtml5 />, <FaCss3Alt />, <FaBootstrap />, <SiCpanel />, <FaReact />, <RiNodejsLine />, <SiMysql />, <FaGitAlt />, <FaGithub />, <SiPostman />]}
             />
-            <ExperienceCard 
+            <ExperienceCard
               company="Geeks México"
               role="Asistente TI"
               date="2021 - 2024"
               color="#a29bfe"
               description="Brinde apoyo técnico a usuarios y mantenimiento de equipos. Participe en proyectos de software desarrollando y diseñando sistemas y aplicaciones personalizados de la mano del clente."
-              tools={[<FcSupport />, <FaServer />, <MdAndroid />, <PiFileSqlFill />, <FaGitAlt />, <FaGithub />, <SiPostman />, <SiMysql />, <SiPhp />, <FaHtml5 />, <FaCss3Alt />, <FaBootstrap />, <SiCpanel />,"Vb.Net" ]}
+              tools={[<FcSupport />, <FaServer />, <MdAndroid />, <PiFileSqlFill />, <FaGitAlt />, <FaGithub />, <SiPostman />, <SiMysql />, <SiPhp />, <FaHtml5 />, <FaCss3Alt />, <FaBootstrap />, <SiCpanel />, "Vb.Net"]}
             />
-            <ExperienceCard 
+            <ExperienceCard
               company="Desarrollador Web"
               role="CPEMS"
               date="2020 - 2021"
               color="#9bfed5ff"
               description="Diseñe y desarrolle un sistema web para el control de los alumnos y docentes permitiendo un mayor control y manejo de los recursos para los estudiantes."
-              tools={[<FaHtml5/>, <FaCss3Alt/>, <FaBootstrap/>, <SiPhp/>, <SiMysql/>, <SiCpanel/>]}
+              tools={[<FaHtml5 />, <FaCss3Alt />, <FaBootstrap />, <SiPhp />, <SiMysql />, <SiCpanel />]}
             />
-            <ExperienceCard 
+            <ExperienceCard
               company="Museo Casa del Rebozo"
               role="Programador aplicación android"
               date="2019 - 2020"
               color="#f72ecbff"
               description="Como parte de mi residencia profesional y proyecto final escolar, desarrolle y diseñe una aplicación android para el museo que permite manejar de forma más optima la información de registros diarios y reduce los tiempos de espera en taquilla."
-              tools={[<MdAndroid/>, <SiPhp/>, <SiCpanel/>]}
+              tools={[<MdAndroid />, <SiPhp />, <SiCpanel />]}
             />
           </div>
         </div>
@@ -259,6 +307,57 @@ const Portafolio = () => {
         {/* Nombre opcional al final de la experiencia */}
         <div style={{ paddingBottom: '40px', opacity: 0.3, color: 'white', letterSpacing: '2px', fontSize: '0.7rem' }}>
           CECILIA LARA © 2026
+        </div>
+      </section>
+
+      {/* --- SECCIÓN 3: PROYECTOS --- */}
+      <section style={{ ...sectionStyle, justifyContent: 'flex-start', paddingTop: '80px' }}>
+        <div style={gridOverlayStyle}></div>
+
+        <div style={{ position: 'relative', zIndex: 10, width: '90%', maxWidth: '1200px', textAlign: 'center' }}>
+          <h2 style={{
+            color: 'white',
+            fontSize: 'clamp(2.5rem, 8vw, 4.5rem)',
+            fontWeight: '800',
+            marginBottom: '50px'
+          }}>
+            Featured <span style={{ color: '#e94d89' }}>Projects</span>
+          </h2>
+
+          {/* GRID DE GALERÍA */}
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gap: '30px',
+            justifyItems: 'center',
+            paddingBottom: '100px'
+          }}>
+            <ProjectCard
+              title="Sistema Web: Odontología"
+              category="Software Web"
+              color="#d4e94d"
+              image="https://via.placeholder.com/400x300/1a1f26/d4e94d?text=Project+1"
+              link="#"
+            />
+            <ProjectCard
+              title="Dashboard de Control"
+              category="Desktop App"
+              color="#00d2ff"
+              image="https://via.placeholder.com/400x300/1a1f26/00d2ff?text=Project+2"
+              link="#"
+            />
+            <ProjectCard
+              title="App de Inventarios"
+              category="Mobile"
+              color="#e94d89"
+              image="https://via.placeholder.com/400x300/1a1f26/e94d89?text=Project+3"
+              link="#"
+            />
+          </div>
+        </div>
+
+        <div style={{ paddingBottom: '40px', opacity: 0.3, color: 'white', letterSpacing: '2px', fontSize: '0.7rem', zIndex: 10 }}>
+          CECILIA LARA © 2026 • HECHO CON PASIÓN
         </div>
       </section>
     </div>

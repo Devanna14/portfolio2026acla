@@ -14,3 +14,16 @@ section {
   scroll-snap-align: start; /* Alinea cada sección al inicio */
   scroll-snap-stop: always;
 }
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 210, 255, 0.2);
+}
+
+.img-container img {
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .img-container img {
+  transform: scale(1.1);
+}
