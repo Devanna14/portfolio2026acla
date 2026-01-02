@@ -17,6 +17,17 @@ import { SiCpanel } from "react-icons/si";
 import { FcSupport } from "react-icons/fc";
 import { FaServer } from "react-icons/fa";
 
+//FOTOS PARA LA GALERIA DE PROYECTOS
+import odontologiaImg from './assets/Proyectos/Odontologia - Geeks.jpeg';
+import srsImg from './assets/Proyectos/SRS.png';
+import lucaTermiImg from './assets/Proyectos/LUCA TERMI.png';
+import ligaEliteImg from './assets/Proyectos/LigaElite.jpeg';
+import pvGeneral from './assets/Proyectos/PVGENERAL.png';
+import jjlservicesImg from './assets/Proyectos/JJLServices - Geeks.jpeg';
+import covidImg from './assets/Proyectos/COVID - Geeks.jpeg';
+import acmeImg from './assets/Proyectos/Acme - Geeks.jpeg';
+import cpemsImg from './assets/Proyectos/CPEMS.png';
+
 // --- SUB-COMPONENTE PARA LAS TARJETAS DE EXPERIENCIA ---
 const ExperienceCard = ({ company, role, date, description, color, tools = [] }) => (
   <div style={{
