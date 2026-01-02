@@ -411,6 +411,78 @@ const Portafolio = () => {
             />
           </div>
         </div>
+      </section>
+
+      {/* --- SECCIÓN 4: CONTACTO (CALL TO ACTION) --- */}
+      <section style={{ ...sectionStyle, backgroundColor: '#0a0e14' }}>
+        <div style={gridOverlayStyle}></div>
+
+        <div style={{
+          position: 'relative',
+          zIndex: 10,
+          textAlign: 'center',
+          padding: '60px 20px',
+          maxWidth: '800px',
+        }}>
+
+          <h2 style={{
+            color: 'white',
+            fontSize: 'clamp(2.5rem, 8vw, 5rem)',
+            fontWeight: '900',
+            lineHeight: '1.1',
+            marginBottom: '20px'
+          }}>
+            ¿Quieres crear <br />
+            <span style={{
+              color: '#7700ffff',
+              textShadow: '0 0 20px rgba(153, 0, 255, 0.5)' // Efecto Neón
+            }}>algo increíble?</span>
+          </h2>
+
+          <p style={{
+            color: 'rgba(255, 255, 255, 0.7)',
+            fontSize: '1.2rem',
+            marginBottom: '40px',
+            maxWidth: '500px',
+            margin: '0 auto 40px auto'
+          }}>
+            Hablemos sobre tu próximo proyecto y trabajemos juntos para hacerlo realidad.
+          </p>
+
+          {/* BOTÓN DE CONTACTO */}
+          <a
+            href="mailto:cecylar14@gmail.com"
+            style={{
+              display: 'inline-block',
+              backgroundColor: '#4de97cff', // Color verde lima original
+              color: 'black',
+              padding: '18px 40px',
+              borderRadius: '50px',
+              fontSize: '1.1rem',
+              fontWeight: '800',
+              textDecoration: 'none',
+              transition: 'all 0.3s ease',
+              boxShadow: '0 10px 30px rgba(212, 233, 77, 0.3)'
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.transform = 'scale(1.05)';
+              e.target.style.boxShadow = '0 15px 40px rgba(95, 233, 77, 0.5)';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = 'scale(1)';
+              e.target.style.boxShadow = '0 10px 30px rgba(95, 233, 77, 0.3)';
+            }}
+          >
+            Contáctame ahora →
+          </a>
+
+          {/* REDES SOCIALES SUTILES ABAJO */}
+          <div style={{ marginTop: '60px', display: 'flex', gap: '20px', justifyContent: 'center', opacity: 0.6 }}>
+            <a href="https://www.linkedin.com/in/ana-cecilia-lara-alvarado-40768b206" style={{ color: 'white', textDecoration: 'none' }}>LinkedIn</a>
+            <a href="https://github.com/Devanna14" style={{ color: 'white', textDecoration: 'none' }}>GitHub</a>
+            <a href="https://www.threads.com/@devanna1406" style={{ color: 'white', textDecoration: 'none' }}>Threads</a>
+          </div>
+        </div>
 
         <div style={{ paddingBottom: '40px', opacity: 0.3, color: 'white', letterSpacing: '2px', fontSize: '0.7rem', zIndex: 10 }}>
           CECILIA LARA © 2026 • Imaginar, codifica y crear 🤍
