@@ -10,6 +10,12 @@ import { MdAndroid } from "react-icons/md";
 import { SiPostman } from "react-icons/si";
 import { SiMysql } from "react-icons/si";
 import { SiPhp } from "react-icons/si";
+import { FaHtml5 } from "react-icons/fa";
+import { FaCss3Alt } from "react-icons/fa";
+import { FaBootstrap } from "react-icons/fa";
+import { SiCpanel } from "react-icons/si";
+import { FcSupport } from "react-icons/fc";
+import { FaServer } from "react-icons/fa";
 
 // --- SUB-COMPONENTE PARA LAS TARJETAS DE EXPERIENCIA ---
 const ExperienceCard = ({ company, role, date, description, color, tools = [] }) => (
@@ -50,7 +56,7 @@ const ExperienceCard = ({ company, role, date, description, color, tools = [] })
       <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '10px' }}>
         {tools.map((tool, index) => (
           <span key={index} style={{
-            fontSize: '1.4rem',
+            fontSize: '1.5rem',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -136,7 +142,7 @@ const Portafolio = () => {
         `}
       </style>
 
-      {/* --- SECCIÓN 1: HERO --- */}
+      {/* --- SECCIÓN 1 --- */}
       <section style={sectionStyle}>
         <div style={gridOverlayStyle}></div>
 
@@ -213,7 +219,7 @@ const Portafolio = () => {
               date="Abril 2024 - Present"
               color="#d4e94d"
               description="Desarrollo de software, mejora y optimización de sistemas existentes."
-              tools={[<FaReact />, <RiNodejsLine />, <PiFileSqlFill />, <FaGitAlt />, <FaGithub />, <SiPostman />, <SiMysql />, <MdAndroid />, <SiPhp />, "Vb.net"]}
+              tools={[<FaReact />, <RiNodejsLine />, <PiFileSqlFill />, <FaGitAlt />, <FaGithub />, <SiPostman />, <SiMysql />, <MdAndroid />, <SiPhp />, "Vb.Net"]}
             />
             <ExperienceCard 
               company="LigaElite"
@@ -221,6 +227,7 @@ const Portafolio = () => {
               date="Julio 2024 - Present"
               color="#e94d89"
               description="Desarrollo y diseño de sistema web para control de jugadores y manejo administrativo."
+              tools={[<FaHtml5 />, <FaCss3Alt />, <FaBootstrap />, <SiCpanel />, <FaReact />, <RiNodejsLine />, <SiMysql />, <FaGitAlt />, <FaGithub />, <SiPostman />]}
             />
             <ExperienceCard 
               company="Geeks México"
@@ -228,6 +235,7 @@ const Portafolio = () => {
               date="2021 - 2024"
               color="#a29bfe"
               description="Brinde apoyo técnico a usuarios y mantenimiento de equipos. Participe en proyectos de software desarrollando y diseñando sistemas y aplicaciones personalizados de la mano del clente."
+              tools={[<FcSupport />, <FaServer />, <MdAndroid />, <PiFileSqlFill />, <FaGitAlt />, <FaGithub />, <SiPostman />, <SiMysql />, <SiPhp />, <FaHtml5 />, <FaCss3Alt />, <FaBootstrap />, <SiCpanel />,"Vb.Net" ]}
             />
             <ExperienceCard 
               company="Desarrollador Web"
@@ -235,6 +243,7 @@ const Portafolio = () => {
               date="2020 - 2021"
               color="#9bfed5ff"
               description="Diseñe y desarrolle un sistema web para el control de los alumnos y docentes permitiendo un mayor control y manejo de los recursos para los estudiantes."
+              tools={[<FaHtml5/>, <FaCss3Alt/>, <FaBootstrap/>, <SiPhp/>, <SiMysql/>, <SiCpanel/>]}
             />
             <ExperienceCard 
               company="Museo Casa del Rebozo"
@@ -242,6 +251,7 @@ const Portafolio = () => {
               date="2019 - 2020"
               color="#f72ecbff"
               description="Como parte de mi residencia profesional y proyecto final escolar, desarrolle y diseñe una aplicación android para el museo que permite manejar de forma más optima la información de registros diarios y reduce los tiempos de espera en taquilla."
+              tools={[<MdAndroid/>, <SiPhp/>, <SiCpanel/>]}
             />
           </div>
         </div>
