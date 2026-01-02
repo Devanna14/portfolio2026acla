@@ -22,11 +22,12 @@ import odontologiaImg from './assets/Proyectos/Odontologia - Geeks.jpeg';
 import srsImg from './assets/Proyectos/SRS.png';
 import lucaTermiImg from './assets/Proyectos/LUCA TERMI.png';
 import ligaEliteImg from './assets/Proyectos/LigaElite.jpeg';
-import pvGeneral from './assets/Proyectos/PVGENERAL.png';
+import pvGeneralImg from './assets/Proyectos/PVGENERAL.png';
 import jjlservicesImg from './assets/Proyectos/JJLServices - Geeks.jpeg';
 import covidImg from './assets/Proyectos/COVID - Geeks.jpeg';
 import acmeImg from './assets/Proyectos/Acme - Geeks.jpeg';
 import cpemsImg from './assets/Proyectos/CPEMS.png';
+import sevsImg from './assets/Proyectos/sevs - hpop.jpg';
 
 // --- SUB-COMPONENTE PARA LAS TARJETAS DE EXPERIENCIA ---
 const ExperienceCard = ({ company, role, date, description, color, tools = [] }) => (
@@ -347,28 +348,77 @@ const Portafolio = () => {
               title="Sistema Web: Odontología"
               category="Software Web"
               color="#d4e94d"
-              image="https://via.placeholder.com/400x300/1a1f26/d4e94d?text=Project+1"
+              image={odontologiaImg}
               link="#"
             />
             <ProjectCard
-              title="Dashboard de Control"
+              title="Sistema Web: SEVS"
+              category="Software Web"
+              color="#00d2ff"
+              image={sevsImg}
+              link="#"
+            />
+            <ProjectCard
+              title="Sistema Web: Liga softball"
+              category="Software Web"
+              color="#e94d89"
+              image={ligaEliteImg}
+              link="#"
+            />
+            <ProjectCard
+              title="Sistema SRS"
               category="Desktop App"
               color="#00d2ff"
-              image="https://via.placeholder.com/400x300/1a1f26/00d2ff?text=Project+2"
+              image={srsImg}
               link="#"
             />
             <ProjectCard
-              title="App de Inventarios"
-              category="Mobile"
+              title="Sistema Desktop: Luca Termi"
+              category="Software Desktop"
               color="#e94d89"
-              image="https://via.placeholder.com/400x300/1a1f26/e94d89?text=Project+3"
+              image={lucaTermiImg}
+              link="#"
+            />
+            <ProjectCard
+              title="Sistema Web: JJL Services"
+              category="Software Web"
+              color="#e94d89"
+              image={jjlservicesImg}
+              link="#"
+            />
+            <ProjectCard
+              title="Sistema Web: Registros pruebas COVID"
+              category="Software Web"
+              color="#e94d89"
+              image={covidImg}
+              link="#"
+            />
+            <ProjectCard
+              title="Sistema Web: ACME"
+              category="Software Web"
+              color="#e94d89"
+              image={acmeImg}
+              link="#"
+            />
+            <ProjectCard
+              title="Sistema Web: CPEMS"
+              category="Software Web"
+              color="#e94d89"
+              image={cpemsImg}
+              link="#"
+            />
+            <ProjectCard
+              title="Sistema Desktop: PV General"
+              category="Software Desktop"
+              color="#e94d89"
+              image={pvGeneralImg}
               link="#"
             />
           </div>
         </div>
 
         <div style={{ paddingBottom: '40px', opacity: 0.3, color: 'white', letterSpacing: '2px', fontSize: '0.7rem', zIndex: 10 }}>
-          CECILIA LARA © 2026 • HECHO CON PASIÓN
+          CECILIA LARA © 2026 • Imaginar, codifica y crear 🤍
         </div>
       </section>
     </div>
