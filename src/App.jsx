@@ -29,7 +29,7 @@ import acmeImg from './assets/Proyectos/Acme - Geeks.jpeg';
 import cpemsImg from './assets/Proyectos/CPEMS.png';
 import sevsImg from './assets/Proyectos/sevs - hpop.jpg';
 
-// --- SUB-COMPONENTE PARA LAS TARJETAS DE EXPERIENCIA ---
+// Sub-componente para las tarjetas de experiencia
 const ExperienceCard = ({ company, role, date, description, color, tools = [] }) => (
   <div style={{
     backgroundColor: 'rgba(255, 255, 255, 0.03)',
@@ -315,11 +315,6 @@ const Portafolio = () => {
             />
           </div>
         </div>
-
-        {/* Nombre opcional al final de la experiencia */}
-        <div style={{ paddingBottom: '40px', opacity: 0.3, color: 'white', letterSpacing: '2px', fontSize: '0.7rem' }}>
-          CECILIA LARA © 2026
-        </div>
       </section>
 
       {/* --- SECCIÓN 3: PROYECTOS --- */}
@@ -333,7 +328,7 @@ const Portafolio = () => {
             fontWeight: '800',
             marginBottom: '50px'
           }}>
-            Featured <span style={{ color: '#e94d89' }}>Projects</span>
+            Algunos <span style={{ color: '#e94d89' }}>proyectos</span>
           </h2>
 
           {/* GRID DE GALERÍA */}
@@ -368,49 +363,49 @@ const Portafolio = () => {
             <ProjectCard
               title="Sistema SRS"
               category="Desktop App"
-              color="#00d2ff"
+              color="#00ffb3ff"
               image={srsImg}
               link="#"
             />
             <ProjectCard
               title="Sistema Desktop: Luca Termi"
               category="Software Desktop"
-              color="#e94d89"
+              color="#d60ebbff"
               image={lucaTermiImg}
               link="#"
             />
             <ProjectCard
               title="Sistema Web: JJL Services"
               category="Software Web"
-              color="#e94d89"
+              color="#e9984dff"
               image={jjlservicesImg}
               link="#"
             />
             <ProjectCard
               title="Sistema Web: Registros pruebas COVID"
               category="Software Web"
-              color="#e94d89"
+              color="#7b92fcff"
               image={covidImg}
               link="#"
             />
             <ProjectCard
               title="Sistema Web: ACME"
               category="Software Web"
-              color="#e94d89"
+              color="#e23779ff"
               image={acmeImg}
               link="#"
             />
             <ProjectCard
               title="Sistema Web: CPEMS"
               category="Software Web"
-              color="#e94d89"
+              color="#4dabe9ff"
               image={cpemsImg}
               link="#"
             />
             <ProjectCard
               title="Sistema Desktop: PV General"
               category="Software Desktop"
-              color="#e94d89"
+              color="#f0ecedff"
               image={pvGeneralImg}
               link="#"
             />
