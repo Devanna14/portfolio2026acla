@@ -344,49 +344,49 @@ const Portafolio = () => {
               category="Software Web"
               color="#d4e94d"
               image={odontologiaImg}
-              link="#"
+              link="https://www.marlocompany.mx/odontologia/"
             />
             <ProjectCard
               title="Sistema Web: SEVS"
               category="Software Web"
               color="#00d2ff"
               image={sevsImg}
-              link="#"
+              // link="#"
             />
             <ProjectCard
               title="Sistema Web: Liga softball"
               category="Software Web"
               color="#e94d89"
               image={ligaEliteImg}
-              link="#"
+              // link="#"
             />
             <ProjectCard
               title="Sistema SRS"
               category="Desktop App"
               color="#00ffb3ff"
               image={srsImg}
-              link="#"
+              // link="#"
             />
             <ProjectCard
               title="Sistema Desktop: Luca Termi"
               category="Software Desktop"
               color="#d60ebbff"
               image={lucaTermiImg}
-              link="#"
+              // link="#"
             />
             <ProjectCard
               title="Sistema Web: JJL Services"
               category="Software Web"
               color="#e9984dff"
               image={jjlservicesImg}
-              link="#"
+              link="https://jjlservices.com.mx/"
             />
             <ProjectCard
               title="Sistema Web: Registros pruebas COVID"
               category="Software Web"
               color="#7b92fcff"
               image={covidImg}
-              link="#"
+              link="https://www.marlocompany.mx/plataforma/login.php"
             />
             <ProjectCard
               title="Sistema Web: ACME"
@@ -400,14 +400,14 @@ const Portafolio = () => {
               category="Software Web"
               color="#4dabe9ff"
               image={cpemsImg}
-              link="#"
+              link="https://www.cpems.edu.mx/index.html"
             />
             <ProjectCard
               title="Sistema Desktop: PV General"
               category="Software Desktop"
               color="#f0ecedff"
               image={pvGeneralImg}
-              link="#"
+              // link="#"
             />
           </div>
         </div>
