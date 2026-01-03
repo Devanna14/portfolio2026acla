@@ -153,28 +153,47 @@ const ProjectCard = ({ title, category, image, color, link, description }) => {
 
         <p style={{
           color: 'rgba(255, 255, 255, 0.6)',
-          fontSize: '0.9rem',
+          fontSize: '0.95rem',
           lineHeight: '1.5',
           margin: '0 0 15px 0',
           display: '-webkit-box',
-          WebkitLineClamp: '2', // Limita a 2 líneas de texto
+          WebkitLineClamp: '2', 
           WebkitBoxOrient: 'vertical',
           overflow: 'hidden'
         }}>
           {description}
         </p>
 
-        <a href={link} style={{
-          color: color,
-          textDecoration: 'none',
-          fontSize: '0.9rem',
-          fontWeight: '600',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '5px'
-        }}>
-          Ver proyecto <span>→</span>
-        </a>
+        {/* RENDERIZADO CONDICIONAL DEL LINK */}
+        {link ? (
+          <a href={link} style={{
+            color: color,
+            textDecoration: 'none',
+            fontSize: '0.95rem',
+            fontWeight: '600',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '5px'
+          }}>
+            Ver proyecto <span>→</span>
+          </a>
+        ) : (
+          <div style={{
+            marginTop: '15px',
+            fontSize: '0.95rem',
+            color: 'rgba(255, 255, 255, 0.64)',
+            fontStyle: 'italic',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '5px'
+          }}>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            Proyecto Interno / Privado
+          </div>
+        )}
       </div>
     </div>
   );
@@ -381,7 +400,6 @@ const Portafolio = () => {
               color="#00d2ff"
               image={sevsImg}
               description="Sistema web interno de la empresa para control y alta de ingresos de cilindros hidraulicos."
-            // link="#"
             />
             <ProjectCard
               title="Sistema Web: Liga softball"
@@ -389,7 +407,6 @@ const Portafolio = () => {
               color="#e94d89"
               image={ligaEliteImg}
               description="Sistema web para control de equipos, jugadores y temas administrativos para la liga de softball."
-            // link="#"
             />
             <ProjectCard
               title="Sistema SRS"
@@ -397,7 +414,6 @@ const Portafolio = () => {
               color="#00ffb3ff"
               image={srsImg}
               description="Sistema interno de control de material y del proceso interno de los sistemas hidraulicos."
-            // link="#"
             />
             <ProjectCard
               title="Sistema Desktop: Luca Termi"
@@ -405,7 +421,6 @@ const Portafolio = () => {
               color="#d60ebbff"
               image={lucaTermiImg}
               description="Sistema interno para el control, calculo y formatos de los servicios de almacenamiento de gas."
-            // link="#"
             />
             <ProjectCard
               title="Sistema Web: JJL Services"
@@ -429,7 +444,6 @@ const Portafolio = () => {
               color="#e23779ff"
               image={acmeImg}
               description="Web informativa para la empresa ACME dedicada a la venta y fabricación de cilindros hidraulicos."
-              link="#"
             />
             <ProjectCard
               title="Sistema Web: CPEMS"
@@ -492,7 +506,7 @@ const Portafolio = () => {
             href="mailto:cecylar14@gmail.com"
             style={{
               display: 'inline-block',
-              backgroundColor: '#4de97cff', 
+              backgroundColor: '#4de97cff',
               color: 'black',
               padding: '18px 40px',
               borderRadius: '50px',
