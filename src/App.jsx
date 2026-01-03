@@ -136,7 +136,7 @@ const ProjectCard = ({ title, category, image, color, link, description }) => {
       backdropFilter: 'blur(10px)'
     }}>
       <div className="img-container" style={{ width: '100%', height: '180px', overflow: 'hidden', position: 'relative' }}>
-        <img src={image} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.9 }} />
+        <img src={image} alt={title} style={{ width: '100%', height: '100%', opacity: 0.9 }} />
         <div style={{
           position: 'absolute',
           top: '15px',
@@ -164,7 +164,7 @@ const ProjectCard = ({ title, category, image, color, link, description }) => {
           lineHeight: '1.5',
           margin: '0 0 15px 0',
           display: '-webkit-box',
-          WebkitLineClamp: '2', 
+          WebkitLineClamp: '4', 
           WebkitBoxOrient: 'vertical',
           overflow: 'hidden'
         }}>
@@ -330,7 +330,7 @@ const Portafolio = () => {
             <ExperienceCard
               company="Hydraulic Pneumatic Original Parts"
               role="Programador"
-              date="Abril 2024 - Present"
+              date="Abril 2024"
               color="#d4e94d"
               description="Desarrollo de software, mejora y optimización de sistemas existentes."
               tools={[<FaReact />, <RiNodejsLine />, <PiFileSqlFill />, <FaGitAlt />, <FaGithub />, <SiPostman />, <SiMysql />, <MdAndroid />, <SiPhp />, "Vb.Net"]}
@@ -338,7 +338,7 @@ const Portafolio = () => {
             <ExperienceCard
               company="LigaElite"
               role="Desarrollador Web"
-              date="Julio 2024 - Present"
+              date="Julio 2024"
               color="#e94d89"
               description="Desarrollo y diseño de sistema web para control de jugadores y manejo administrativo."
               tools={[<FaHtml5 />, <FaCss3Alt />, <FaBootstrap />, <SiCpanel />, <FaReact />, <RiNodejsLine />, <SiMysql />, <FaGitAlt />, <FaGithub />, <SiPostman />]}
