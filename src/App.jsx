@@ -361,6 +361,11 @@ const Portafolio = () => {
     title: ''
   });
 
+  // --- GRUPOS DE IMÁGENES POR PROYECTO ---
+  const fotosOdontologia = [odontologiaImg, covidImg, srsImg];
+  const fotosLigaElite = [lucaTermiImg, pvGeneralImg];
+  const fotosCovid = [mcrAppImg, museoApp];
+
   const openGallery = (images, title) => {
     setModalConfig({ isOpen: true, images, title });
   };
