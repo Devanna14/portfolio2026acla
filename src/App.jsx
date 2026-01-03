@@ -1,6 +1,10 @@
 import React from 'react';
 import './App.css';
+
+// Importar imagen de perfil
 import imageProfile from './assets/Pic1.jpeg';
+
+// Importar iconos de react-icons
 import { FaReact } from "react-icons/fa";
 import { RiNodejsLine } from "react-icons/ri";
 import { PiFileSqlFill } from "react-icons/pi";
@@ -104,7 +108,6 @@ const Tag = ({ children, color }) => (
   </span>
 );
 
-
 // Sub-componente principal cards de galeria
 const ProjectCard = ({ title, category, image, color, link, description }) => {
   const dashedBorderStyle = {
@@ -195,8 +198,8 @@ const Portafolio = () => {
     position: 'absolute',
     inset: 0,
     backgroundImage: `
-      linear-gradient(to right, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.07) 1px, transparent 1px)
+      linear-gradient(to right, rgba(255, 255, 194, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px)
     `,
     backgroundSize: '40px 40px',
     zIndex: 1,
@@ -227,7 +230,7 @@ const Portafolio = () => {
         `}
       </style>
 
-      {/* --- SECCIÓN 1 --- */}
+      {/* --- SECCIÓN 1: HEADER --- */}
       <section style={sectionStyle}>
         <div style={gridOverlayStyle}></div>
 
@@ -269,7 +272,7 @@ const Portafolio = () => {
           </div>
         </div>
 
-        {/* FOOTER HERO */}
+        {/* FOOTER */}
         <div style={{ position: 'absolute', bottom: '40px', textAlign: 'center', zIndex: 10, color: 'white' }}>
           <span style={{ fontSize: '0.85rem', letterSpacing: '5px', textTransform: 'uppercase', opacity: 0.5, fontWeight: '500' }}>
             By Cecilia Lara
@@ -448,7 +451,7 @@ const Portafolio = () => {
         </div>
       </section>
 
-      {/* --- SECCIÓN 4: CONTACTO (CALL TO ACTION) --- */}
+      {/* --- SECCIÓN 4: CONTACTO --- */}
       <section style={{ ...sectionStyle, backgroundColor: '#0a0e14' }}>
         <div style={gridOverlayStyle}></div>
 
@@ -470,7 +473,7 @@ const Portafolio = () => {
             ¿Quieres crear <br />
             <span style={{
               color: '#7700ffff',
-              textShadow: '0 0 20px rgba(153, 0, 255, 0.5)' // Efecto Neón
+              textShadow: '0 0 20px rgba(153, 0, 255, 0.5)'
             }}>algo increíble?</span>
           </h2>
 
@@ -489,7 +492,7 @@ const Portafolio = () => {
             href="mailto:cecylar14@gmail.com"
             style={{
               display: 'inline-block',
-              backgroundColor: '#4de97cff', // Color verde lima original
+              backgroundColor: '#4de97cff', 
               color: 'black',
               padding: '18px 40px',
               borderRadius: '50px',
@@ -511,7 +514,7 @@ const Portafolio = () => {
             Contáctame ahora →
           </a>
 
-          {/* REDES SOCIALES SUTILES ABAJO */}
+          {/* REDES SOCIALES ABAJO */}
           <div style={{ marginTop: '60px', display: 'flex', gap: '20px', justifyContent: 'center', opacity: 0.6 }}>
             <a href="https://www.linkedin.com/in/ana-cecilia-lara-alvarado-40768b206" style={{ color: 'white', textDecoration: 'none' }}>LinkedIn</a>
             <a href="https://github.com/Devanna14" style={{ color: 'white', textDecoration: 'none' }}>GitHub</a>
