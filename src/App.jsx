@@ -265,7 +265,7 @@ const ImageModal = ({ isOpen, onClose, images, title }) => {
         <h2 style={{
           color: 'white',
           marginBottom: '20px',
-          fontSize: 'clamp(1rem, 4vw, 1.8rem)', // Título responsivo
+          fontSize: 'clamp(1rem, 4vw, 1.8rem)',
           fontWeight: '300',
           padding: '0 20px'
         }}>{title}</h2>
@@ -318,7 +318,7 @@ const ImageModal = ({ isOpen, onClose, images, title }) => {
         <div style={{
           marginTop: '20px',
           color: 'black',
-          backgroundColor: '#00d2ff', // Usamos tu color acento
+          backgroundColor: '#6f00ffd3', 
           padding: '5px 15px',
           borderRadius: '20px',
           fontSize: '0.9rem',
