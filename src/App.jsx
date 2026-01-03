@@ -217,7 +217,18 @@ const ProjectCard = ({ title, category, image, color, link, description, gallery
 const ImageModal = ({ isOpen, onClose, images, title }) => {
   const [currentIndex, setCurrentIndex] = React.useState(0);
 
-  if (!isOpen) return null;
+  React.useEffect(() => {
+    if (isOpen) setCurrentIndex(0);
+  }, [isOpen]);
+
+  // Cerrar con tecla Escape
+  React.useEffect(() => {
+    const handleEsc = (e) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, [onClose]);
+
+  if (!isOpen || !images || images.length === 0) return null;
 
   const nextSlide = (e) => {
     e.stopPropagation();
@@ -230,39 +241,89 @@ const ImageModal = ({ isOpen, onClose, images, title }) => {
   };
 
   return (
-    <div
-      onClick={onClose}
-      style={{
-        position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.9)',
-        zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center',
-        backdropFilter: 'blur(10px)', padding: '20px'
-      }}
-    >
-      <div
-        onClick={(e) => e.stopPropagation()}
-        style={{ position: 'relative', maxWidth: '900px', width: '100%', textAlign: 'center' }}
-      >
-        <button onClick={onClose} style={{ position: 'absolute', top: '-40px', right: 0, color: 'white', background: 'none', border: 'none', fontSize: '2rem', cursor: 'pointer' }}>&times;</button>
+    <div style={{
+      position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.95)',
+      zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center',
+      backdropFilter: 'blur(15px)', padding: '10px' // Menos padding en móvil
+    }}>
+      <div style={{
+        position: 'relative',
+        width: '100%',
+        maxWidth: '1100px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+      }}>
 
-        <h2 style={{ color: 'white', marginBottom: '15px' }}>{title}</h2>
+        {/* BOTÓN CERRAR SUPERIOR */}
+        <button onClick={onClose} style={{
+          position: 'absolute', top: '-60px', right: '10px',
+          background: 'none', border: 'none', color: 'white',
+          fontSize: '2.5rem', cursor: 'pointer', opacity: 0.7
+        }}>&times;</button>
 
-        <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+        <h2 style={{
+          color: 'white',
+          marginBottom: '20px',
+          fontSize: 'clamp(1rem, 4vw, 1.8rem)', // Título responsivo
+          fontWeight: '300',
+          padding: '0 20px'
+        }}>{title}</h2>
+
+        {/* CONTENEDOR DE IMAGEN Y BOTONES */}
+        <div style={{
+          position: 'relative',
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}>
+
           {images.length > 1 && (
-            <button onClick={prevSlide} style={navButtonStyle}>&#10094;</button>
+            <button
+              onClick={prevSlide}
+              style={{ ...navButtonStyle, left: '10px' }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(255,255,255,0.3)'}
+              onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.15)'}
+            >
+              &#10094;
+            </button>
           )}
 
           <img
             src={images[currentIndex]}
             alt="Gallery"
-            style={{ width: '100%', maxHeight: '70vh', objectFit: 'contain', borderRadius: '12px' }}
+            style={{
+              maxWidth: '100%',
+              maxHeight: '70vh',
+              objectFit: 'contain',
+              borderRadius: '12px',
+              userSelect: 'none'
+            }}
           />
 
           {images.length > 1 && (
-            <button onClick={nextSlide} style={{ ...navButtonStyle, right: 0 }}>&#10095;</button>
+            <button
+              onClick={nextSlide}
+              style={{ ...navButtonStyle, right: '10px' }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(255,255,255,0.3)'}
+              onMouseLeave={(e) => e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.15)'}
+            >
+              &#10095;
+            </button>
           )}
         </div>
 
-        <div style={{ color: 'white', marginTop: '10px' }}>
+        {/* INDICADOR DE PÁGINA */}
+        <div style={{
+          marginTop: '20px',
+          color: 'black',
+          backgroundColor: '#00d2ff', // Usamos tu color acento
+          padding: '5px 15px',
+          borderRadius: '20px',
+          fontSize: '0.9rem',
+          fontWeight: 'bold'
+        }}>
           {currentIndex + 1} / {images.length}
         </div>
       </div>
@@ -272,9 +333,24 @@ const ImageModal = ({ isOpen, onClose, images, title }) => {
 
 //Estilos para los botones de navegación del modal
 const navButtonStyle = {
-  position: 'absolute', background: 'rgba(255,255,255,0.1)', color: 'white',
-  border: 'none', padding: '15px', cursor: 'pointer', fontSize: '1.5rem', borderRadius: '50%',
-  margin: '0 10px', zIndex: 10
+  position: 'absolute',
+  top: '50%',
+  transform: 'translateY(-50%)',
+  backgroundColor: 'rgba(255, 255, 255, 0.15)',
+  color: 'white',
+  border: 'none',
+  width: 'clamp(40px, 8vw, 60px)',
+  height: 'clamp(40px, 8vw, 60px)',
+  cursor: 'pointer',
+  fontSize: '1.5rem',
+  borderRadius: '50%',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  zIndex: 20,
+  transition: 'all 0.3s ease',
+  backdropFilter: 'blur(5px)',
+  boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
 };
 
 const Portafolio = () => {
@@ -494,8 +570,8 @@ const Portafolio = () => {
               image={odontologiaImg}
               description="Sistema web para control de pacientes y citas odontológicas."
               // link="https://www.marlocompany.mx/odontologia/"
-              link="#" 
-              gallery={[sevsImg, srsImg, covidImg]} 
+              link="#"
+              gallery={[sevsImg, srsImg, covidImg]}
               onOpenGallery={openGallery}
             />
             <ProjectCard
