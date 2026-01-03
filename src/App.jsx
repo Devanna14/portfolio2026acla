@@ -565,7 +565,7 @@ const Portafolio = () => {
         </div>
 
         <div style={{ paddingBottom: '40px', opacity: 0.7, color: 'white', letterSpacing: '2px', fontSize: '1rem', zIndex: 10 }}>
-          CECILIA LARA © 2026 • Imagina, codifica y crear 🤍
+          CECILIA LARA © 2026 • Imagina, codifica y crea 🤍
         </div>
       </section>
     </div>
