@@ -106,51 +106,76 @@ const Tag = ({ children, color }) => (
 
 
 // Sub-componente principal cards de galeria
-const ProjectCard = ({ title, category, image, color, link }) => (
-  <div className="project-card" style={{
-    backgroundColor: 'rgba(255, 255, 255, 0.03)',
+const ProjectCard = ({ title, category, image, color, link, description }) => {
+  const dashedBorderStyle = {
+    backgroundImage: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='24' ry='24' stroke='rgba(255, 255, 255, 0.2)' stroke-width='1' stroke-dasharray='10%2c 10' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e")`,
     borderRadius: '24px',
-    overflow: 'hidden',
-    border: '1px dashed rgba(255, 255, 255, 0.2)',
-    transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
-    width: '100%',
-    maxWidth: '350px',
-    textAlign: 'left',
-    zIndex: 10
-  }}>
-    <div className="img-container" style={{ width: '100%', height: '200px', overflow: 'hidden', position: 'relative' }}>
-      <img src={image} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-      <div style={{
-        position: 'absolute',
-        top: '15px',
-        right: '15px',
-        backgroundColor: color,
-        color: 'black',
-        padding: '4px 12px',
-        borderRadius: '20px',
-        fontSize: '0.7rem',
-        fontWeight: 'bold',
-        textTransform: 'uppercase'
-      }}>
-        {category}
+  };
+
+  return (
+    <div className="project-card" style={{
+      ...dashedBorderStyle,
+      backgroundColor: 'rgba(255, 255, 255, 0.02)',
+      overflow: 'hidden',
+      transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+      width: '100%',
+      maxWidth: '350px',
+      textAlign: 'left',
+      zIndex: 10,
+      position: 'relative',
+      backdropFilter: 'blur(10px)'
+    }}>
+      <div className="img-container" style={{ width: '100%', height: '180px', overflow: 'hidden', position: 'relative' }}>
+        <img src={image} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.9 }} />
+        <div style={{
+          position: 'absolute',
+          top: '15px',
+          right: '15px',
+          backgroundColor: color,
+          color: 'black',
+          padding: '4px 12px',
+          borderRadius: '20px',
+          fontSize: '0.7rem',
+          fontWeight: 'bold',
+          textTransform: 'uppercase'
+        }}>
+          {category}
+        </div>
+      </div>
+
+      <div style={{ padding: '20px' }}>
+        <h3 style={{ color: 'white', margin: '0 0 8px 0', fontSize: '1.2rem', fontWeight: '700' }}>
+          {title}
+        </h3>
+        
+        <p style={{ 
+          color: 'rgba(255, 255, 255, 0.6)', 
+          fontSize: '0.9rem', 
+          lineHeight: '1.5', 
+          margin: '0 0 15px 0',
+          display: '-webkit-box',
+          WebkitLineClamp: '2', // Limita a 2 líneas de texto
+          WebkitBoxOrient: 'vertical',
+          overflow: 'hidden' 
+        }}>
+          {description}
+        </p>
+
+        <a href={link} style={{
+          color: color,
+          textDecoration: 'none',
+          fontSize: '0.9rem',
+          fontWeight: '600',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '5px'
+        }}>
+          Ver proyecto <span>→</span>
+        </a>
       </div>
     </div>
-    <div style={{ padding: '20px' }}>
-      <h3 style={{ color: 'white', margin: '0 0 10px 0', fontSize: '1.2rem' }}>{title}</h3>
-      <a href={link} style={{
-        color: color,
-        textDecoration: 'none',
-        fontSize: '0.9rem',
-        fontWeight: '600',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '5px'
-      }}>
-        Ver proyecto <span>→</span>
-      </a>
-    </div>
-  </div>
-);
+  );
+};
 
 const Portafolio = () => {
   // Estilos base para las secciones
@@ -344,6 +369,7 @@ const Portafolio = () => {
               category="Software Web"
               color="#d4e94d"
               image={odontologiaImg}
+              description="Sistema web para control de pacientes y citas odontológicas."
               link="https://www.marlocompany.mx/odontologia/"
             />
             <ProjectCard
@@ -351,34 +377,39 @@ const Portafolio = () => {
               category="Software Web"
               color="#00d2ff"
               image={sevsImg}
-              // link="#"
+              description="Sistema web interno de la empresa para control y alta de ingresos de cilindros hidraulicos."
+            // link="#"
             />
             <ProjectCard
               title="Sistema Web: Liga softball"
               category="Software Web"
               color="#e94d89"
               image={ligaEliteImg}
-              // link="#"
+              description="Sistema web para control de equipos, jugadores y temas administrativos para la liga de softball."
+            // link="#"
             />
             <ProjectCard
               title="Sistema SRS"
-              category="Desktop App"
+              category="Software Desktop"
               color="#00ffb3ff"
               image={srsImg}
-              // link="#"
+              description="Sistema interno de control de material y del proceso interno de los sistemas hidraulicos."
+            // link="#"
             />
             <ProjectCard
               title="Sistema Desktop: Luca Termi"
               category="Software Desktop"
               color="#d60ebbff"
               image={lucaTermiImg}
-              // link="#"
+              description="Sistema interno para el control, calculo y formatos de los servicios de almacenamiento de gas."
+            // link="#"
             />
             <ProjectCard
               title="Sistema Web: JJL Services"
               category="Software Web"
               color="#e9984dff"
               image={jjlservicesImg}
+              description="Sistema web para el registro de la gestión de la medición y controles volumétricos."
               link="https://jjlservices.com.mx/"
             />
             <ProjectCard
@@ -386,6 +417,7 @@ const Portafolio = () => {
               category="Software Web"
               color="#7b92fcff"
               image={covidImg}
+              description="Sistema web para el control de resultados de pruebas COVID mediante lectores QR."
               link="https://www.marlocompany.mx/plataforma/login.php"
             />
             <ProjectCard
@@ -393,6 +425,7 @@ const Portafolio = () => {
               category="Software Web"
               color="#e23779ff"
               image={acmeImg}
+              description="Web informativa para la empresa ACME dedicada a la venta y fabricación de cilindros hidraulicos."
               link="#"
             />
             <ProjectCard
@@ -400,14 +433,16 @@ const Portafolio = () => {
               category="Software Web"
               color="#4dabe9ff"
               image={cpemsImg}
+              description="Sistema web para el control, registro de alumnos y de material escolar."
               link="https://www.cpems.edu.mx/index.html"
             />
             <ProjectCard
               title="Sistema Desktop: PV General"
               category="Software Desktop"
               color="#f0ecedff"
+              description="Sistema web para el control, registro de alumnos y de material escolar."
               image={pvGeneralImg}
-              // link="#"
+            // link="#"
             />
           </div>
         </div>
