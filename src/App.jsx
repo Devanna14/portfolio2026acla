@@ -147,16 +147,16 @@ const ProjectCard = ({ title, category, image, color, link, description }) => {
         <h3 style={{ color: 'white', margin: '0 0 8px 0', fontSize: '1.2rem', fontWeight: '700' }}>
           {title}
         </h3>
-        
-        <p style={{ 
-          color: 'rgba(255, 255, 255, 0.6)', 
-          fontSize: '0.9rem', 
-          lineHeight: '1.5', 
+
+        <p style={{
+          color: 'rgba(255, 255, 255, 0.6)',
+          fontSize: '0.9rem',
+          lineHeight: '1.5',
           margin: '0 0 15px 0',
           display: '-webkit-box',
           WebkitLineClamp: '2', // Limita a 2 líneas de texto
           WebkitBoxOrient: 'vertical',
-          overflow: 'hidden' 
+          overflow: 'hidden'
         }}>
           {description}
         </p>
@@ -440,9 +440,9 @@ const Portafolio = () => {
               title="Sistema Desktop: PV General"
               category="Software Desktop"
               color="#f0ecedff"
-              description="Sistema web para el control, registro de alumnos y de material escolar."
               image={pvGeneralImg}
-            // link="#"
+              description="Proyecto personal - sistema de control de inventario y punto de venta general."
+              link="https://www.cpems.edu.mx/index.html"
             />
           </div>
         </div>
@@ -519,8 +519,8 @@ const Portafolio = () => {
           </div>
         </div>
 
-        <div style={{ paddingBottom: '40px', opacity: 0.3, color: 'white', letterSpacing: '2px', fontSize: '0.7rem', zIndex: 10 }}>
-          CECILIA LARA © 2026 • Imaginar, codifica y crear 🤍
+        <div style={{ paddingBottom: '40px', opacity: 0.7, color: 'white', letterSpacing: '2px', fontSize: '1rem', zIndex: 10 }}>
+          CECILIA LARA © 2026 • Imagina, codifica y crear 🤍
         </div>
       </section>
     </div>
