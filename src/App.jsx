@@ -21,6 +21,10 @@ import { SiCpanel } from "react-icons/si";
 import { FcSupport } from "react-icons/fc";
 import { FaServer } from "react-icons/fa";
 
+//Iconos para el footer - contacto
+import { FaLinkedin } from "react-icons/fa";
+import { FaSquareThreads } from "react-icons/fa6";
+
 //FOTOS PARA LA GALERIA DE PROYECTOS
 import odontologiaImg from './assets/Proyectos/Odontologia - Geeks.jpeg';
 import srsImg from './assets/Proyectos/SRS.png';
@@ -31,7 +35,7 @@ import jjlservicesImg from './assets/Proyectos/JJLServices - Geeks.jpeg';
 import covidImg from './assets/Proyectos/COVID - Geeks.jpeg';
 import acmeImg from './assets/Proyectos/Acme - Geeks.jpeg';
 import cpemsImg from './assets/Proyectos/CPEMS.png';
-import sevsImg from './assets/Proyectos/sevs - hpop.jpg';
+import sevsImg from './assets/Proyectos/sevs - hpop.jpg'
 
 // Sub-componente para las tarjetas de experiencia
 const ExperienceCard = ({ company, role, date, description, color, tools = [] }) => (
@@ -530,9 +534,9 @@ const Portafolio = () => {
 
           {/* REDES SOCIALES ABAJO */}
           <div style={{ marginTop: '60px', display: 'flex', gap: '20px', justifyContent: 'center', opacity: 0.6 }}>
-            <a href="https://www.linkedin.com/in/ana-cecilia-lara-alvarado-40768b206" style={{ color: 'white', textDecoration: 'none' }}>LinkedIn</a>
-            <a href="https://github.com/Devanna14" style={{ color: 'white', textDecoration: 'none' }}>GitHub</a>
-            <a href="https://www.threads.com/@devanna1406" style={{ color: 'white', textDecoration: 'none' }}>Threads</a>
+            <a href="https://www.linkedin.com/in/ana-cecilia-lara-alvarado-40768b206" style={{ color: 'white', textDecoration: 'none', fontSize: '1.7rem' }}><FaLinkedin /></a>
+            <a href="https://github.com/Devanna14" style={{ color: 'white', textDecoration: 'none', fontSize: '1.7rem' }}><FaGithub /></a>
+            <a href="https://www.threads.com/@devanna1406" style={{ color: 'white', textDecoration: 'none', fontSize: '1.7rem' }}><FaSquareThreads /></a>
           </div>
         </div>
 
