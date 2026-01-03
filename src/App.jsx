@@ -36,6 +36,9 @@ import covidImg from './assets/Proyectos/COVID - Geeks.jpeg';
 import acmeImg from './assets/Proyectos/Acme - Geeks.jpeg';
 import cpemsImg from './assets/Proyectos/CPEMS.png';
 import sevsImg from './assets/Proyectos/sevs - hpop.jpg'
+import ledherAppImg from './assets/Proyectos/Ledeher app.png'
+import mcrAppImg from './assets/Proyectos/mcr scanner.png'
+import museoApp from './assets/Proyectos/museo app.png'
 
 // Sub-componente para las tarjetas de experiencia
 const ExperienceCard = ({ company, role, date, description, color, tools = [] }) => (
@@ -451,12 +454,33 @@ const Portafolio = () => {
               link="https://www.actuadoresdemexico.com/"
             />
             <ProjectCard
+              title="APP Android: Mecanica Ledeher"
+              category="App Mobile"
+              color="#c7e94dff"
+              image={ledherAppImg}
+              description="Aplicación que permite registrar los servicios a realizar a los vehiculos."
+            />
+            <ProjectCard
+              title="APP Android: MCR Scanner"
+              category="App Mobile"
+              color="#e9934dff"
+              image={mcrAppImg}
+              description="Aplicación que permite consultar el inventario de medicamentos mediante el escaneo de códigos de barras."
+            />
+            <ProjectCard
               title="Sistema Web: CPEMS"
               category="Software Web"
               color="#4dabe9ff"
               image={cpemsImg}
               description="Sistema web para el control, registro de alumnos y de material escolar."
               link="https://www.cpems.edu.mx/index.html"
+            />
+            <ProjectCard
+              title="APP Android: Museo Casa del Rebozo"
+              category="App Mobile"
+              color="#9c0942ff"
+              image={museoApp}
+              description="Aplicación que permite registrar visitas diarias al museo para mejor control."
             />
             <ProjectCard
               title="Sistema Desktop: PV General"
