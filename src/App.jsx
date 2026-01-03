@@ -448,6 +448,7 @@ const Portafolio = () => {
               color="#e23779ff"
               image={acmeImg}
               description="Web informativa para la empresa ACME dedicada a la venta y fabricación de cilindros hidraulicos."
+              link="https://www.actuadoresdemexico.com/"
             />
             <ProjectCard
               title="Sistema Web: CPEMS"
