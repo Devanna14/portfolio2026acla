@@ -116,10 +116,18 @@ const Tag = ({ children, color }) => (
 );
 
 // Sub-componente principal cards de galeria
-const ProjectCard = ({ title, category, image, color, link, description }) => {
+const ProjectCard = ({ title, category, image, color, link, description, gallery = [], onOpenGallery }) => {
   const dashedBorderStyle = {
     backgroundImage: `url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='24' ry='24' stroke='rgba(255, 255, 255, 0.2)' stroke-width='1' stroke-dasharray='10%2c 10' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e")`,
     borderRadius: '24px',
+  };
+
+  // Función para manejar el clic en el enlace
+  const handleLinkClick = (e) => {
+    if (link === '#') {
+      e.preventDefault();
+      onOpenGallery(gallery, title);
+    }
   };
 
   return (
@@ -164,7 +172,7 @@ const ProjectCard = ({ title, category, image, color, link, description }) => {
           lineHeight: '1.5',
           margin: '0 0 15px 0',
           display: '-webkit-box',
-          WebkitLineClamp: '4', 
+          WebkitLineClamp: '4',
           WebkitBoxOrient: 'vertical',
           overflow: 'hidden'
         }}>
@@ -173,16 +181,15 @@ const ProjectCard = ({ title, category, image, color, link, description }) => {
 
         {/* RENDERIZADO CONDICIONAL DEL LINK */}
         {link ? (
-          <a href={link} style={{
-            color: color,
-            textDecoration: 'none',
-            fontSize: '0.95rem',
-            fontWeight: '600',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '5px'
-          }}>
-            Ver proyecto <span>→</span>
+          <a
+            href={link}
+            onClick={handleLinkClick}
+            style={{
+              color: color, textDecoration: 'none', fontSize: '0.95rem',
+              fontWeight: '600', display: 'flex', alignItems: 'center', gap: '5px', cursor: 'pointer'
+            }}
+          >
+            {link === '#' ? 'Ver Galería' : 'Ver proyecto'} <span>→</span>
           </a>
         ) : (
           <div style={{
@@ -206,7 +213,86 @@ const ProjectCard = ({ title, category, image, color, link, description }) => {
   );
 };
 
+//Sub-componente modal galeria de fotos (proyectos) - pendiente de implementar
+const ImageModal = ({ isOpen, onClose, images, title }) => {
+  const [currentIndex, setCurrentIndex] = React.useState(0);
+
+  if (!isOpen) return null;
+
+  const nextSlide = (e) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevSlide = (e) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  return (
+    <div
+      onClick={onClose}
+      style={{
+        position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.9)',
+        zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center',
+        backdropFilter: 'blur(10px)', padding: '20px'
+      }}
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        style={{ position: 'relative', maxWidth: '900px', width: '100%', textAlign: 'center' }}
+      >
+        <button onClick={onClose} style={{ position: 'absolute', top: '-40px', right: 0, color: 'white', background: 'none', border: 'none', fontSize: '2rem', cursor: 'pointer' }}>&times;</button>
+
+        <h2 style={{ color: 'white', marginBottom: '15px' }}>{title}</h2>
+
+        <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+          {images.length > 1 && (
+            <button onClick={prevSlide} style={navButtonStyle}>&#10094;</button>
+          )}
+
+          <img
+            src={images[currentIndex]}
+            alt="Gallery"
+            style={{ width: '100%', maxHeight: '70vh', objectFit: 'contain', borderRadius: '12px' }}
+          />
+
+          {images.length > 1 && (
+            <button onClick={nextSlide} style={{ ...navButtonStyle, right: 0 }}>&#10095;</button>
+          )}
+        </div>
+
+        <div style={{ color: 'white', marginTop: '10px' }}>
+          {currentIndex + 1} / {images.length}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+//Estilos para los botones de navegación del modal
+const navButtonStyle = {
+  position: 'absolute', background: 'rgba(255,255,255,0.1)', color: 'white',
+  border: 'none', padding: '15px', cursor: 'pointer', fontSize: '1.5rem', borderRadius: '50%',
+  margin: '0 10px', zIndex: 10
+};
+
 const Portafolio = () => {
+  // --- NUEVO ESTADO PARA EL MODAL ---
+  const [modalConfig, setModalConfig] = React.useState({
+    isOpen: false,
+    images: [],
+    title: ''
+  });
+
+  const openGallery = (images, title) => {
+    setModalConfig({ isOpen: true, images, title });
+  };
+
+  const closeGallery = () => {
+    setModalConfig({ ...modalConfig, isOpen: false });
+  };
+
   // Estilos base para las secciones
   const sectionStyle = {
     minHeight: '100vh',
@@ -371,6 +457,14 @@ const Portafolio = () => {
         </div>
       </section>
 
+      {/* --- MODAL RENDERIZADO --- */}
+      <ImageModal
+        isOpen={modalConfig.isOpen}
+        onClose={closeGallery}
+        images={modalConfig.images}
+        title={modalConfig.title}
+      />
+
       {/* --- SECCIÓN 3: PROYECTOS --- */}
       <section style={{ ...sectionStyle, justifyContent: 'flex-start', paddingTop: '80px' }}>
         <div style={gridOverlayStyle}></div>
@@ -399,7 +493,10 @@ const Portafolio = () => {
               color="#d4e94d"
               image={odontologiaImg}
               description="Sistema web para control de pacientes y citas odontológicas."
-              link="https://www.marlocompany.mx/odontologia/"
+              // link="https://www.marlocompany.mx/odontologia/"
+              link="#" 
+              gallery={[sevsImg, srsImg, covidImg]} 
+              onOpenGallery={openGallery}
             />
             <ProjectCard
               title="Sistema Web: SEVS"
@@ -421,6 +518,7 @@ const Portafolio = () => {
               color="#00ffb3ff"
               image={srsImg}
               description="Sistema interno de control de material y del proceso interno de los sistemas hidraulicos."
+              onOpenGallery={openGallery}
             />
             <ProjectCard
               title="Sistema Desktop: Luca Termi"
