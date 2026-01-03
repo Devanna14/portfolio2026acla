@@ -62,7 +62,7 @@ const ExperienceCard = ({ company, role, date, description, color, tools = [] })
   >
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
       <h3 style={{ color: color, margin: 0, fontSize: '1.4rem' }}>
-        {role} <span style={{ color: '#fff', opacity: 0.5 }}>at {company}</span>
+        {role} <span style={{ color: '#fff', opacity: 0.5 }}> - {company}</span>
       </h3>
       <span style={{ color: '#fff', opacity: 0.6, fontSize: '0.9rem' }}>{date}</span>
     </div>
@@ -463,7 +463,6 @@ const Portafolio = () => {
               color="#f0ecedff"
               image={pvGeneralImg}
               description="Proyecto personal - sistema de control de inventario y punto de venta general."
-              link="https://www.cpems.edu.mx/index.html"
             />
           </div>
         </div>
