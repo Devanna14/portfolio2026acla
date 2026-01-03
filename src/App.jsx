@@ -32,13 +32,21 @@ import lucaTermiImg from './assets/Proyectos/LUCA TERMI.png';
 import ligaEliteImg from './assets/Proyectos/LigaElite.jpeg';
 import pvGeneralImg from './assets/Proyectos/PVGENERAL.png';
 import jjlservicesImg from './assets/Proyectos/JJLServices - Geeks.jpeg';
+
+//COVID
 import covidImg from './assets/Proyectos/COVID - Geeks.jpeg';
+import covidImg1 from './assets/Proyectos/CovidGaleria/covid-1.png';
+
 import acmeImg from './assets/Proyectos/Acme - Geeks.jpeg';
 import cpemsImg from './assets/Proyectos/CPEMS.png';
 import sevsImg from './assets/Proyectos/sevs - hpop.jpg'
 import ledherAppImg from './assets/Proyectos/Ledeher app.png'
 import mcrAppImg from './assets/Proyectos/mcr scanner.png'
 import museoApp from './assets/Proyectos/museo app.png'
+
+//EVENTOS CJR
+import eventosCJRImg from './assets/Proyectos/eventosCJR.png'
+import eventosCJRImg1 from './assets/Proyectos/eventosCJRGaleria/eventosCJR-1.png'
 
 // Sub-componente para las tarjetas de experiencia
 const ExperienceCard = ({ company, role, date, description, color, tools = [] }) => (
@@ -318,7 +326,7 @@ const ImageModal = ({ isOpen, onClose, images, title }) => {
         <div style={{
           marginTop: '20px',
           color: 'black',
-          backgroundColor: '#6f00ffd3', 
+          backgroundColor: '#6f00ffd3',
           padding: '5px 15px',
           borderRadius: '20px',
           fontSize: '0.9rem',
@@ -362,9 +370,10 @@ const Portafolio = () => {
   });
 
   // --- GRUPOS DE IMÁGENES POR PROYECTO ---
-  const fotosOdontologia = [odontologiaImg, covidImg, srsImg];
+  const fotosOdontologia = [odontologiaImg];
   const fotosLigaElite = [lucaTermiImg, pvGeneralImg];
-  const fotosCovid = [mcrAppImg, museoApp];
+  const fotosCovid = [covidImg, covidImg1];
+  const fotosEventosCJR = [eventosCJRImg, eventosCJRImg1];
 
   const openGallery = (images, title) => {
     setModalConfig({ isOpen: true, images, title });
@@ -574,9 +583,8 @@ const Portafolio = () => {
               color="#d4e94d"
               image={odontologiaImg}
               description="Sistema web para control de pacientes y citas odontológicas."
-              // link="https://www.marlocompany.mx/odontologia/"
               link="#"
-              gallery={[sevsImg, srsImg, covidImg]}
+              gallery={fotosOdontologia}
               onOpenGallery={openGallery}
             />
             <ProjectCard
@@ -622,7 +630,9 @@ const Portafolio = () => {
               color="#7b92fcff"
               image={covidImg}
               description="Sistema web para el control de resultados de pruebas COVID mediante lectores QR."
-              link="https://www.marlocompany.mx/plataforma/login.php"
+              link="#"
+              gallery={fotosCovid}
+              onOpenGallery={openGallery}
             />
             <ProjectCard
               title="Sistema Web: ACME"
@@ -645,6 +655,16 @@ const Portafolio = () => {
               color="#e9934dff"
               image={mcrAppImg}
               description="Aplicación que permite consultar el inventario de medicamentos mediante el escaneo de códigos de barras."
+            />
+            <ProjectCard
+              title="Sistema Web: Control eventos CJR"
+              category="Software Web"
+              color="#ac0df7ff"
+              image={eventosCJRImg}
+              description="Sistema web que permite registrar eventos y se da control de acceso a la instalación mediante codigos QR."
+              link="#"
+              gallery={fotosEventosCJR}
+              onOpenGallery={openGallery}
             />
             <ProjectCard
               title="Sistema Web: CPEMS"
