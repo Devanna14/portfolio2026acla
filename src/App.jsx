@@ -377,7 +377,7 @@ const Portafolio = () => {
 
   // --- GRUPOS DE IMÁGENES POR PROYECTO ---
   const fotosOdontologia = [odontologiaImg];
-  const fotosLigaElite = [lucaTermiImg, pvGeneralImg];
+  const fotosLigaElite = [ligaEliteGaleria1, ligaEliteGaleria2, ligaEliteGaleria3, ligaEliteGaleria4];
   const fotosCovid = [covidImg, covidImg1];
   const fotosEventosCJR = [eventosCJRImg, eventosCJRImg1];
 
@@ -604,7 +604,8 @@ const Portafolio = () => {
               title="Sistema Web: Liga softball"
               category="Software Web"
               color="#e94d89"
-              image={ligaEliteImg}
+              image={fotosLigaElite}
+              onOpenGallery={openGallery}
               description="Sistema web para control de equipos, jugadores y temas administrativos para la liga de softball."
             />
             <ProjectCard
