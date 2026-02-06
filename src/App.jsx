@@ -48,6 +48,12 @@ import museoApp from './assets/Proyectos/museo app.png'
 import eventosCJRImg from './assets/Proyectos/eventosCJR.png'
 import eventosCJRImg1 from './assets/Proyectos/eventosCJRGaleria/eventosCJR-1.png'
 
+//LigaElite
+import ligaEliteGaleria1 from './assets/Proyectos/LigaEliteGaleria/ligaElite-1.jpeg'
+import ligaEliteGaleria2 from './assets/Proyectos/LigaEliteGaleria/ligaElite-2.jpeg'
+import ligaEliteGaleria3 from './assets/Proyectos/LigaEliteGaleria/ligaElite-3.jpeg'
+import ligaEliteGaleria4 from './assets/Proyectos/LigaEliteGaleria/ligaElite-4.jpeg'
+
 // Sub-componente para las tarjetas de experiencia
 const ExperienceCard = ({ company, role, date, description, color, tools = [] }) => (
   <div style={{
