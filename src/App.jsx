@@ -605,7 +605,8 @@ const Portafolio = () => {
               category="Software Web"
               color="#e94d89"
               link="#"
-              image={fotosLigaElite}
+              image={ligaEliteImg}
+              gallery={fotosLigaElite}
               onOpenGallery={openGallery}
               description="Sistema web para control de equipos, jugadores y temas administrativos para la liga de softball."
             />
