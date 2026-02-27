@@ -33,6 +33,9 @@ import ligaEliteImg from './assets/Proyectos/LigaElite.jpeg';
 import pvGeneralImg from './assets/Proyectos/PVGENERAL.png';
 import jjlservicesImg from './assets/Proyectos/JJLServices - Geeks.jpeg';
 
+//Korebulary
+import korebularyImg from './assets/Proyectos/korebulary/korebulary.png';
+
 //COVID
 import covidImg from './assets/Proyectos/COVID - Geeks.jpeg';
 import covidImg1 from './assets/Proyectos/CovidGaleria/covid-1.png';
@@ -583,6 +586,14 @@ const Portafolio = () => {
             justifyItems: 'center',
             paddingBottom: '100px'
           }}>
+            <ProjectCard
+              title="Sistema Web: Korebulary"
+              category="Software Web"
+              color="#4d50e9ff"
+              image={korebularyImg}
+              description="App web para el aprendizaje del idioma coreano."
+              link="https://devanna14.github.io/korebulary/"
+            />
             <ProjectCard
               title="Sistema Web: Odontología"
               category="Software Web"
