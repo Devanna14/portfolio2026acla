@@ -592,7 +592,7 @@ const Portafolio = () => {
               color="#4d50e9ff"
               image={korebularyImg}
               description="App web para el aprendizaje del idioma coreano."
-              link="https://devanna14.github.io/korebulary/"
+              link="https://korebulary.com/"
             />
             <ProjectCard
               title="Sistema Web: Odontología"
